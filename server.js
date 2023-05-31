@@ -94,8 +94,8 @@ io.use((socket, next) => {
 io.on("connection", async (socket) => {
     console.log("a user connected. id - " + socket.id);
 
-    let username = socket.credentials?.login;
-    let userId = socket.credentials?.user_id;
+    let username = socket.credentials.login;
+    let userId = socket.credentials.user_id;
     let messages = await db.getMessages();
 
     socket.on("new_message", (msg) => {
